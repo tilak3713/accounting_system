@@ -54,17 +54,11 @@
                         <td>{{ $data->cus_email }}</td>
                         <td>{{ $data->contact_no }}</td>
 
-             @php
-              $parent_acc = array(''=>'select','1'=>'abc','2'=>'pqr','3'=>'uvw','4'=>'xyz');
-              @endphp
+             
                         <td>{{ $parent_acc[$data->parent_acc] }}</td>
                         <td>{{ $location_data[$data->location_id_fk] }}</td>
 
-                         @php
-
-                            $tax_type = array(''=>'select','1'=>'xx','2'=>'yy','3'=>'zz','4'=>'tt');
-
-                            @endphp
+                        
 
                         <td>{{ $tax_type[$data->tax_type_id] }}</td>
                         <td>
