@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">List of Account(New) <a href="{{url('account/add-new')}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> Add New</a> </h1>
+<h1 class="h3 mb-2 text-gray-800">List of Account <a href="{{url('account/add-new')}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> Add New</a> </h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
