@@ -54,13 +54,13 @@
                     </tr>
                 </tfoot> -->
                 <tbody>
-                    @php $i=1; $chkbox = array('0'=>'No','1'=>'Yes'); @endphp
+                    @php $i=1; $chkbox = array('0'=>'<i class="fa fa-times text-danger" aria-hidden="true"></i>','1'=>'<i class="fa fa-check text-success" aria-hidden="true"></i>'); @endphp
                     @foreach($datas as $data)
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{ $data->item_name }}</td>
-                        <td>{{ $chkbox[$data->is_tour] }}</td>
-                        <td>{{ $chkbox[$data->exclude_from_discounts] }}</td>
+                        <td>{!! $chkbox[$data->is_tour] !!}</td>
+                        <td>{!! $chkbox[$data->exclude_from_discounts] !!}</td>
                         <td>
                         @if($data->status==1)
 
