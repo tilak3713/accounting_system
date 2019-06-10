@@ -163,3 +163,21 @@ Route::post('/sales/invoice-items/edit/{id}', 'InvoiceItemController@update');
 Route::get('/sales/invoice-items/change_status/{id}', 'InvoiceItemController@change_status');
 
 
+
+Route::get('discount-Periods-Setup','managements\DiscountPeriodsSetupController@index');
+Route::get('discount-periods-add', 'managements\DiscountPeriodsSetupController@discount_add');
+Route::post('discount-periods-store', 'managements\DiscountPeriodsSetupController@discount_store');
+Route::get('discount-periods-edit/{id}', 'managements\DiscountPeriodsSetupController@discount_edit');
+Route::post('discount-periods-update/{id}', 'managements\DiscountPeriodsSetupController@discount_update');
+Route::get('discount-periods-delete/{id}', 'managements\DiscountPeriodsSetupController@discount_delete');
+
+
+Route::get('acounts-discount-setup','managements\AccountDiscountSetupController@index');
+Route::get('acounts-discount-add','managements\AccountDiscountSetupController@discount_add');
+Route::post('acounts-discount-store','managements\AccountDiscountSetupController@discount_store');
+Route::post('discount-items-store','managements\AccountDiscountSetupController@discount_items_store');
+Route::get('list-of-discount-items','managements\AccountDiscountSetupController@list_of_discount_items')->name('list-of-discount-items');
+Route::get('account-discount-delete/{id}','managements\AccountDiscountSetupController@account_delete');
+Route::get('account-discount-edit/{id}','managements\AccountDiscountSetupController@account_edit');
+
+Route::post('acounts-discount-update/{id}','managements\AccountDiscountSetupController@discount_update');
