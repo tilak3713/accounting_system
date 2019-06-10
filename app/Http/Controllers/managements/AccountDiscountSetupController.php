@@ -9,6 +9,7 @@ use App\acounts_discount_store;
 use App\Items;
 use App\Discount_items;
 use DB;
+use App\AccountModel;
 
 class AccountDiscountSetupController extends Controller
 {
@@ -21,6 +22,9 @@ class AccountDiscountSetupController extends Controller
 
 	    public function index()
 		    {
+                
+                       
+
 		           $list=acounts_discount_store::get();
                         
 		    	return view('managements/account_discount_setup/account_discount_setup',compact('list'));
@@ -30,12 +34,12 @@ class AccountDiscountSetupController extends Controller
 		public function discount_add()
 		    {
 		    	$itmeslist=Items::get()->pluck('item_name','id')->toArray();  
-
+ $account = AccountModel::where('parent_account', '0')->pluck('account_name', 'id')->toArray();
 
 		            $list=Discount_Periods_Setup::All()->pluck('description','id')->toArray();
 
 
-		    	return view('managements/account_discount_setup/account_discount_add',compact('list', 'itmeslist'));
+		    	return view('managements/account_discount_setup/account_discount_add',compact('list', 'itmeslist', 'account'));
 		    }
 
 //------------------------------------------------------------------------------ ---------------------------------   
@@ -184,11 +188,11 @@ class AccountDiscountSetupController extends Controller
 	        		$itmeslist=Items::get()->pluck('item_name','id')->toArray();  
 
 	        	        $list=Discount_Periods_Setup::All()->pluck('description','id')->toArray();
-                         
+                         $account = AccountModel::where('parent_account', '0')->pluck('account_name', 'id')->toArray();
 
                          $discount_list= discount_items::where('account_discount_id', $id)->get();
 
-	        		return view('managements/account_discount_setup/account_discount_edit',compact('list', 'itmeslist','get_data_byid','discount_list'));
+	        		return view('managements/account_discount_setup/account_discount_edit',compact('list', 'itmeslist','get_data_byid','discount_list', 'account'));
 
 	        }
 

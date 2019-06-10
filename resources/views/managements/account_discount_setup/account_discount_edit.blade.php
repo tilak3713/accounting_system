@@ -44,7 +44,7 @@ strong{
             <div class="form-group row">
                  {!! htmlspecialchars_decode(Form::label('account','Account :<span class="star" >*</span> ',array('class' => 'col-md-4 col-form-label text-md-right')))!!}
                 <div class="col-md-6">
-                   {{ Form::select('account', array(''=>'Select','L' => 'Large', 'S' => 'Small'),$get_data_byid->account_name, array('class'=>'form-control'))}}
+                   {{ Form::select('account', array(''=>'Select')+$account, $get_data_byid->account_name, array('class'=>'form-control'))}}
                     @if ($errors->has('account'))
                     <span class="help-block">
                         <strong>{{ $errors->first('account') }}</strong>

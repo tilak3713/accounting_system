@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PurchaseorderModel;
 use App\PurchaseitemModel;
+use App\AccountModel;
 
 class PurchaseController extends Controller
 {
     public function add_purchase_order()
     {
+       $supplierlist = AccountModel::where('is_supplier_account', '1')->pluck('account_name', 'id')->toArray();
+               
         $data = PurchaseorderModel::orderBy('id','desc')->take(1)->get();
         $lastId=$data[0]->id+1;
-        return view('purchase/addpurchase_order',compact('lastId'));
+        return view('purchase/addpurchase_order',compact('lastId', 'supplierlist'));
     }
 
     public function insert_purchase_order(Request $request)
