@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\LocationSetupModel;
 use App\CustomerSetupModel;
+use App\AccountModel;
+use App\TaxModel;
 
 class CustomerSetupController extends Controller
 {
@@ -18,9 +20,10 @@ class CustomerSetupController extends Controller
 
     public function index()
     {
+         $tax_type = TaxModel::pluck('tax_type_name', 'tax_rate')->toArray();
     	$location_data = LocationSetupModel::all()->pluck('location_name','id');
-    	
-    	return view('sales/customer_setup/customer_add',compact('location_data'));
+    	$parent_acc = AccountModel::where('is_customer_related', '1')->pluck('account_name', 'id')->toArray();
+    	return view('sales/customer_setup/customer_add',compact('location_data', 'parent_acc', 'tax_type'));
     }
 
 //-----------------------------------------------------------------------------------------//
@@ -74,10 +77,10 @@ class CustomerSetupController extends Controller
     public function show()
     {
       $datas = CustomerSetupModel::all();
-
+$tax_type = TaxModel::pluck('tax_type_name', 'tax_rate')->toArray();
       $location_data = LocationSetupModel::all()->pluck('location_name','id');
-      
-      return view('sales/customer_setup/customer_list',compact('datas','location_data'));	
+      $parent_acc = AccountModel::where('is_customer_related', '1')->pluck('account_name', 'id')->toArray();
+      return view('sales/customer_setup/customer_list',compact('datas','location_data', 'parent_acc', 'tax_type'));	
     }
 
 //------------------------------------------------------------------------------------------//
@@ -102,11 +105,11 @@ class CustomerSetupController extends Controller
 
     public function edit($id)
     {
+         $tax_type = TaxModel::pluck('tax_type_name', 'tax_rate')->toArray();
     	$data = CustomerSetupModel::find($id);
-
     	$location_data = LocationSetupModel::all()->pluck('location_name','id');
-
-    	return view('sales/customer_setup/customer_edit',compact('data','location_data'));
+        $parent_acc = AccountModel::where('is_customer_related', '1')->pluck('account_name', 'id')->toArray();
+    	return view('sales/customer_setup/customer_edit',compact('data','location_data', 'parent_acc', 'tax_type'));
     }
 
 

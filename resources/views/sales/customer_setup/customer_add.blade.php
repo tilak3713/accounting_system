@@ -84,13 +84,9 @@
                         <label for="parent_acc" class="col-md-4 col-form-label text-md-right"><b>Parent Account Related<span style="color:red;">*</span></b></label>
                         <div class="col-md-6">
 
-                            @php
+                         
 
-                            $parent_acc = array(''=>'select','1'=>'abc','2'=>'pqr','3'=>'uvw','4'=>'xyz');
-
-                            @endphp
-
-                            {{ Form::select('parent_acc',$parent_acc,'',['class'=>'form-control']) }}
+                            {{ Form::select('parent_acc',array(''=>'Please select')+$parent_acc,'',['class'=>'form-control']) }}
 
                              @if ($errors->has('parent_acc'))
                                 <span class="help-block">
@@ -118,13 +114,9 @@
                         <label for="tax_type_id" class="col-md-4 col-form-label text-md-right"><b>Tax Type<span style="color:red;">*</span></b></label>
                         <div class="col-md-6">
 
-                            @php
+                           
 
-                            $tax_type = array(''=>'select','1'=>'xx','2'=>'yy','3'=>'zz','4'=>'tt');
-
-                            @endphp
-
-                            {{ Form::select('tax_type_id',$tax_type,'',['class'=>'form-control']) }}
+                            {{ Form::select('tax_type_id',array(''=>'Please select')+$tax_type,'',['class'=>'form-control']) }}
 
                              @if ($errors->has('tax_type_id'))
                                 <span class="help-block">
