@@ -3,7 +3,7 @@
 
 <script>
   function add_more(){
-  	
+    
     var count = $(".social_icon_fields").length;
     var n = count+1;
     var itemcount=count;
@@ -34,20 +34,20 @@
  <div class="row">
 
     <div class="col-lg-12">
-		<div class="card shadow mb-4">
+        <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <a href="{{url('purchase/view_purchase_order')}}" class="btn btn-success" style="float: right;">Back</a>
                   <h6 class="m-0 font-weight-bold text-primary">Add New Purchase Order</h6>
                 </div>
                 <div class="card-body">
-                	 {{Form::open(['method'=>'post', 'url'=>'purchase/insert_purchase_order'])}}
-				<div class="row">
-               <div class="col-md-6"> 	
+                     {{Form::open(['method'=>'post', 'url'=>'purchase/insert_purchase_order'])}}
+                <div class="row">
+               <div class="col-md-6">   
                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Purchase Order')}}</label>
                          <div class="col-md-6">
-							
-                            {{Form::text('po_id',$lastId, ['class'=>'form-control','readonly'])}}
+                            
+                            {{Form::text('po_id_fk',$lastId, ['class'=>'form-control','readonly'])}}
 
                             @if ($errors->has('purchase_order'))
                             <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
               </div>  
          
                <div class="col-md-6"> 
-               	 <div class="form-group row">
+                 <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Closing Date')}}</label>
                         <div class="col-md-6">
                            
@@ -114,7 +114,7 @@
                             @endif
                         </div>     
                     </div>
-				<div class="form-group row">
+                <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Exchange USD Rate')}}</label>
                         <div class="col-md-6">
                            
@@ -164,7 +164,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Add New Purchase item for Purchase Order No: {{'THO-'.$lastId}}</h6>
                 </div>
                 <div class="card-body">
-					<div class="table-responsive">
+                    <div class="table-responsive">
             <table class="table table-bordered"  width="100%" cellspacing="0">
                 <thead>
                     <tr>                        
@@ -175,44 +175,44 @@
                                                                 
                     </tr>
                 </thead> 
-					<tbody>
-						<tr class="social_icon_fields">
-							<td>{{Form::text('items[0][pi_booking_reference]','', ['class'=>'form-control', 'required'=>'','placeholder'=>'Enter Booking Reference','autocomplete'=>'pi_booking_reference','autofocus'=>''])}}
-							
-							@if ($errors->has('pi_booking_reference'))
+                    <tbody>
+                        <tr class="social_icon_fields">
+                            <td>{{Form::text('items[0][pi_booking_reference]','', ['class'=>'form-control', 'required'=>'','placeholder'=>'Enter Booking Reference','autocomplete'=>'pi_booking_reference','autofocus'=>''])}}
+                            
+                            @if ($errors->has('pi_booking_reference'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('pi_booking_reference') }}</strong>
                             </span>
                             @endif
-							</td>
+                            </td>
 
-							<td>{{Form::text('items[0][pi_supplier_amount]','', ['class'=>'form-control', 'required'=>'','placeholder'=>'Enter Supplier Currency Amount','autocomplete'=>'pi_supplier_amount','autofocus'=>''])}}
-							
-							@if ($errors->has('pi_supplier_amount'))
+                            <td>{{Form::text('items[0][pi_supplier_amount]','', ['class'=>'form-control', 'required'=>'','placeholder'=>'Enter Supplier Currency Amount','autocomplete'=>'pi_supplier_amount','autofocus'=>''])}}
+                            
+                            @if ($errors->has('pi_supplier_amount'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('pi_supplier_amount') }}</strong>
                             </span>
                             @endif
-							</td>
+                            </td>
 
-							<td>{{Form::text('items[0][pi_amount]','', ['class'=>'form-control', 'required'=>'','placeholder'=>'Enter Amount','autocomplete'=>'po_amount','autofocus'=>''])}}
-							
-							@if ($errors->has('pi_amount'))
+                            <td>{{Form::text('items[0][pi_amount]','', ['class'=>'form-control', 'required'=>'','placeholder'=>'Enter Amount','autocomplete'=>'po_amount','autofocus'=>''])}}
+                            
+                            @if ($errors->has('pi_amount'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('pi_amount') }}</strong>
                             </span>
                             @endif
-							</td>
-							<td><input type="button" class="btn btn-primary" onclick="add_more()" value="Add More +"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+                            </td>
+                            <td><input type="button" class="btn btn-primary" onclick="add_more()" value="Add More +"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
                 </div>
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                        	<button type="reset" class="btn btn-danger">
+                            <button type="reset" class="btn btn-danger">
                                 {{ __('Cancel') }}
                             </button>
                             <button type="submit" class="btn btn-primary pull-right">
