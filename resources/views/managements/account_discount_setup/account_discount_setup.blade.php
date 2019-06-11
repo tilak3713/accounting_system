@@ -35,7 +35,7 @@
                         <td>
                             <a href=" {{url('account-discount-edit/'.$row->id)}}" title="edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                             
-                            <a href="{{url('account-discount-delete/'.$row->id)}} " title="Delete" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                            <a href="{{url('account-discount-delete/'.$row->id)}} " title="Delete" class="btn btn-danger btn-sm" onclick="if(confirm('Are u sure want to delete?')) commentDelete(1); return false"   ><i class="fas fa-trash"></i></a>
                             
                         </td>
                     </tr>

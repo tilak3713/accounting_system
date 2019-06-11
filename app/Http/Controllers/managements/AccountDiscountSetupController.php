@@ -173,7 +173,7 @@ class AccountDiscountSetupController extends Controller
 	        	$result_items=discount_items::find($id)->delete();
 	        	if($result_items)
 	        	{
-	        		 return redirect('')->with('success',' Deleted Discount Periods');
+	        		 return back()->with('success',' Deleted Discount Periods');
 	        	}
 	        }
 
@@ -200,7 +200,23 @@ class AccountDiscountSetupController extends Controller
 
 
 
-
+public function discount_items_update(Request $request)
+		    {
+		        
+		    	$rec =discount_items::find($request->discount_item_id);
+		    	$rec->item_description = $request->item_description;
+		    	$rec->discount_amount = $request->discount_amount;
+		    	$rec->discount_percent = $request->discount_percent;
+		    	$rec->account_discount_id = $request->discount_account_id;
+		    
+		    	if($rec->save()){
+				echo $request->discount_account_id;
+		    	}else{
+		    		echo 'not inserted';
+		    	}
+		    }
+                    
+                    
 
 
 
