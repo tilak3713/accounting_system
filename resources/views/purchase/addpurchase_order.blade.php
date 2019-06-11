@@ -88,7 +88,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Supplier Currency')}}</label>
                          <div class="col-md-6">
                      
-                            {{Form::select('po_supplier_currency',$currency_list, '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_currency','autofocus'=>''])}}
+                            {{Form::select('po_supplier_currency', array(''=>'Please select')+$currency_list, '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_currency','autofocus'=>''])}}
 
                             @if ($errors->has('po_supplier_currency'))
                             <span class="invalid-feedback" role="alert">

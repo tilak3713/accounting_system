@@ -33,7 +33,6 @@
                 <thead>
                     <tr>
                         <th>S.No.</th>
-                        <th>Salutation</th>
                         <th>Customer Name</th>
                         <th>Customer Email</th>
                         <th>Contact Number</th>
@@ -49,8 +48,7 @@
                     @foreach($datas as $data)
                     <tr>
                         <td>{{ $i }}</td>
-                        <td>{{ $data->title }}</td>
-                        <td>{{ $data->cus_name }}</td>
+                        <td>{{ $data->title.' '.$data->cus_name }}</td>
                         <td>{{ $data->cus_email }}</td>
                         <td>{{ $data->contact_no }}</td>
 

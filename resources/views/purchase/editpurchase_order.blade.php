@@ -39,7 +39,7 @@
 // echo $data[0]->po_narration
 ?>
 
-
+ 
     <div class="col-lg-12">
         <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -96,7 +96,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Supplier Currency')}}</label>
                          <div class="col-md-6">
                      
-                            {{Form::select('po_supplier_currency', array('1'=>'Choose Supplier Currency','2'=>'NZD'), '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_currency','autofocus'=>''])}}
+                            {{Form::select('po_supplier_currency', array(''=>'Select Currency')+$currency_list, $data[0]->po_supplier_currency,['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_currency','autofocus'=>''])}}
 
                             @if ($errors->has('po_supplier_currency'))
                             <span class="invalid-feedback" role="alert">
