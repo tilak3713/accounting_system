@@ -182,3 +182,5 @@ Route::get('account-discount-delete/{id}','managements\AccountDiscountSetupContr
 Route::get('account-discount-edit/{id}','managements\AccountDiscountSetupController@account_edit');
 
 Route::post('acounts-discount-update/{id}','managements\AccountDiscountSetupController@discount_update');
+Route::get('discount-item-delete/{id}','managements\AccountDiscountSetupController@discount_item_delete');
+Route::post('discount-items-edit','managements\AccountDiscountSetupController@discount_items_update');

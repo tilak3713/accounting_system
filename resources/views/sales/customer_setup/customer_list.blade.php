@@ -64,7 +64,13 @@
 
                         
 
-                        <td>{{ $tax_type[$data->tax_type_id] }}</td>
+                        <td>
+                            @if(isset($tax_type[$data->tax_type_id]))
+
+                            {{ $tax_type[$data->tax_type_id] }}
+                            
+                            @endif
+                        </td>
                         <td>
                        <!--  <a href="" title="edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a> -->
                         <a href="{{url('sales/customers/edit/'.$data->id)}}" title="edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

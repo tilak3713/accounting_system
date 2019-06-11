@@ -36,7 +36,11 @@
                         <td>{{$data->id}}</td>
                         <td>{{$cashOrBankAccounts[$data->cash_or_bank_ac]}}</td>
                         <td>{{$data->narration}}</td>
-                        <td>{{$expenseAccount[$data->account]}}</td>
+                        <td>
+                            
+                            {{$expenseAccount[$data->account]}}
+                        
+                        </td>
                         <td>{{$data->tax_type}}</td>
                         <td>{{$data->amount_without_tax}}</td>
                         <td>{{$data->tax_amount}}</td>

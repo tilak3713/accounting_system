@@ -82,9 +82,7 @@ strong{
                 </div>
             </form>
          {{ Form::close()}}
-
-
-
+         
             </div>
 
     
@@ -111,9 +109,9 @@ strong{
                    <td>{{$value->created_at }}</td>
                    <td>{{$value->updated_at }}</td>
                    <td>
-                       <a href="" title="edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                     <a  href="javascript:editaccountdiscount('{{$value->item_description }}', '{{$value->discount_amount }}','{{$value->discount_percent }}','{{$value->id}}')" class="btn btn-primary btn-sm"  title="edit" > <i class="fas fa-edit"></i></a> 
                        
-                       <a href=" " title="Delete" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                       <a href="{{url('discount-item-delete/'.$value->id)}} " title="Delete" onclick="if(confirm('Are u sure want to delete?')) commentDelete(1); return false" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                        
                    </td>
                </tr>
@@ -201,7 +199,72 @@ strong{
 
 
 
+<div class="modal fade" id="itemeditModalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Item details</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+ {{Form::open(array('url'=>'discount-items-edit','id'=>'edit_discount_on_items', 'name'=>'discount_on_items'))}}
+           
+            <div class="form-group row">
 
+                 {!! htmlspecialchars_decode(Form::label('item_description ','Item Description:<span class="star" >*</span>',array('class' => 'col-md-4 col-form-label text-md-right')))!!}
+                <div class="col-md-6">
+
+                   {{ Form::select('item_description', array(''=>'Please select items')+$itmeslist , '', array('class'=>'form-control','id'=>'edit_id_item_description'))}}
+
+
+                    @if ($errors->has('item_description'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('item_description') }}</strong>
+                    </span>
+                    @endif
+                    
+                </div> 
+            </div>
+
+            <div class="form-group row">
+                 {!! htmlspecialchars_decode(Form::label('discount_amount','Discount Amount :<span class="star" >*</span> ',array('class' => 'col-md-4 col-form-label text-md-right')))!!}
+                <div class="col-md-6">
+                   {{ Form::text('discount_amount','', array('class'=>'form-control','id'=>'edit_id_discount_amount'))}}
+                    @if ($errors->has('discount_amount'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('discount_amount') }}</strong>
+                    </span>
+                    @endif
+                </div> 
+            </div>
+
+            <div class="form-group row">
+                 {!! htmlspecialchars_decode(Form::label('discount_percent ','Discount Percent  :<span class="star" >*</span> ',array('class' => 'col-md-4 col-form-label text-md-right')))!!}
+                <div class="col-md-6">
+                   {{ Form::text('discount_percent', '', array('class'=>'form-control','id'=>'edit_id_discount_percent'))}}
+                    @if ($errors->has('discount_percent'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('discount_percent') }}</strong>
+                    </span>
+                    @endif
+                </div> 
+            </div>
+            <input type="hidden" name="discount_account_id" value="{{ $get_data_byid->id}} ">
+               <input type="hidden" name="discount_item_id" id="discount_item_id" >
+              <input type="submit" name="submit" class="btn btn-primary pull-right" style="float: right;">
+      </div>
+        
+
+
+
+{{Form::close()}}
+
+      </div>
+    </div>
+  </div>
 
 @endsection
 

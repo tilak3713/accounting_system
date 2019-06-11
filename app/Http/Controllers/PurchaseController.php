@@ -76,9 +76,10 @@ class PurchaseController extends Controller
         ->select('purchase_order.po_closing_date','purchase_order.purchase_date','purchase_order.id','purchase_order.created_at','purchase_order.updated_at','purchase_order.po_supplier_name','purchase_order.po_supplier_currency','purchase_order.po_closing_date','purchase_order.po_ex_usd_rate','purchase_order.po_ex_aud_rate','purchase_order.po_narration','purchase_item.pi_booking_reference','purchase_item.pi_supplier_amount','purchase_item.id')  
         ->where('purchase_order.id','=',$id)
         ->get();
+         $supplierlist = AccountModel::where('is_supplier_account', '1')->pluck('account_name', 'id')->toArray();
 
         $currency_list = CountrySetupModel::all()->pluck('currency_code', 'id')->toArray();
-        return view('purchase/view-all-details-po',compact('data','currency_list')); 
+        return view('purchase/view-all-details-po',compact('data','currency_list', 'supplierlist')); 
     }
 
         public function edit_purchase_order($id)

@@ -40,6 +40,7 @@
                       <td>{{date('d/m/Y',strtotime($result->purchase_date))}}</td>
                       <td>{{$result->id}}</td>
                       <td>{{date('d/m/Y',strtotime($result->po_closing_date))}}</td>
+<<<<<<< HEAD
                       <td>{{$result->po_supplier_name}}</td>
                       <td>
                           @if(isset($currency_list[$result->po_supplier_currency]))
@@ -48,6 +49,15 @@
 
                           @endif
                       </td>
+=======
+                      <td>
+                      @if(isset($supplierlist[$result->po_supplier_name]))    
+                         {{ $supplierlist[$result->po_supplier_name] }}
+                      @endif
+                      
+                      </td>
+                      <td>{{ $currency_list[$result->po_supplier_currency]}}</td>
+>>>>>>> 439af2df3f871306c1e6e78ee54b4790b13d7718
                       <td>{{$result->pi_supplier_amount}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>

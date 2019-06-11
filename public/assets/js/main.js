@@ -34,8 +34,8 @@ $(document).ready(function () {
             }
 
         }
-
     });
+    
     $('#expense_amount_without_tax').change(function () {
         if (isNaN($('#expense_amount_without_tax').val())) {
             $(this).val('');
@@ -165,6 +165,25 @@ $(document).ready(function(){
 
 
 
+   $('#edit_discount_on_items').submit(function(e){
+    e.preventDefault();
+  var method=$(this).attr('method');
+  var form_url=$(this).attr('action');
+  var form_data=$(this).serialize();
+  $.ajax({
+    type:method,
+    url:form_url,
+    data:form_data,
+    success:function(result){
+     
+            $('#itemeditModalId').modal('hide');
+                discount_item(result);
+    }
+
+
+  })
+
+   });
 
 		
 
@@ -173,6 +192,15 @@ $(document).ready(function(){
 
 
 
+ function editaccountdiscount(edit_id_item_description,edit_id_discount_amount,edit_id_discount_percent,discount_item_id){
+ 
+  $('#edit_id_item_description').val(edit_id_item_description);
+  $('#edit_id_discount_amount').val(edit_id_discount_amount);
+  $('#edit_id_discount_percent').val(edit_id_discount_percent);
 
+  $('#discount_item_id').val(discount_item_id);
+  $('#itemeditModalId').modal('show');
+
+ } 
  
 
