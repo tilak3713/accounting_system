@@ -59,7 +59,7 @@ $(document).ready(function () {
 function discount_item(req){
 	$.ajax({
             type:"GET",
-            url: "http://localhost/THOADMIN/public/list-of-discount-items",
+            url: "http://localhost/accounting_system/public/list-of-discount-items",
             data:'id='+req,            
             dataType: 'json',
             contentType: "application/json; charset=utf-8",

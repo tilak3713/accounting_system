@@ -41,7 +41,13 @@
                       <td>{{$result->id}}</td>
                       <td>{{date('d/m/Y',strtotime($result->po_closing_date))}}</td>
                       <td>{{$result->po_supplier_name}}</td>
-                      <td>{{ $currency_list[$result->po_supplier_currency]}}</td>
+                      <td>
+                          @if(isset($currency_list[$result->po_supplier_currency]))
+
+                         {{ $currency_list[$result->po_supplier_currency] }}
+
+                          @endif
+                      </td>
                       <td>{{$result->pi_supplier_amount}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>

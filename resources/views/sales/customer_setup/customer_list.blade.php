@@ -53,7 +53,13 @@
                         <td>{{ $data->contact_no }}</td>
 
              
-                        <td>{{ $parent_acc[$data->parent_acc] }}</td>
+                        <td>
+                            @if(isset($parent_acc[$data->parent_acc]))
+
+                            {{ $parent_acc[$data->parent_acc] }}
+                            
+                            @endif
+                        </td>
                         <td>{{ $location_data[$data->location_id_fk] }}</td>
 
                         
