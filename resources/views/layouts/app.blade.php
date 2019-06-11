@@ -16,8 +16,9 @@
         <link href="{{ asset('assets') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link href="{{ asset('assets') }}/vendor/datatables/responsive.dataTables.min.css" rel="stylesheet">       
 <!-- Themes files start-->
-
-    </head>
+    
+   </head>
+    
     <body id="page-top">
 
         <!-- Page Wrapper -->
@@ -379,5 +380,36 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
+    <script>
+    
+    function discount_item(req) {
+    $.ajax({
+        type: "GET",
+        url: {{url('list-of-discount-items')}},
+        data: 'id=' + req,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            var tabledata = '';
+            $.each(result, function (index, element) {
+                tabledata += "<tr>" +
+                        "<td>" + element.item_description + "</td>" +
+                        "<td>" + element.discount_amount + "</td>" +
+                        "<td>" + element.discount_percent + "</td>" +
+                        "<td>" + element.created_at + "</td>" +
+                        "<td>" + element.updated_at + "</td>" +
+                        "<td> <a href='' class='btn btn-primary' title='Edit'><i class='fas fa-edit'></i></a><a href='' class='btn btn-danger' title='Delete'><i class='fas fa-trash'> </i> </a> </td>" +
+                        "</tr>";
+
+
+
+
+            });
+            $('#itemlisttddataid').html(tabledata);
+
+        }
+    });
+}
+    </script>
     </body>
 </html>
