@@ -41,7 +41,7 @@
                       <td>{{$result->id}}</td>
                       <td>{{date('d/m/Y',strtotime($result->po_closing_date))}}</td>
                       <td>{{$result->po_supplier_name}}</td>
-                      <td>{{$result->po_supplier_currency}}</td>
+                      <td>{{ $currency_list[$result->po_supplier_currency]}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>
                       <td>{{$result->pi_supplier_amount}}</td>
@@ -49,7 +49,7 @@
                       <td>0</td>
                       <td>{{$result->created_at->format('d/m/Y g:i A')}}</td>
                       <td>{{$result->updated_at->format('d/m/Y g:i A')}}</td>
-                      <td><a href=""><i class="fa fa-edit" title="Edit"></i></a>
+                      <td>
                         <a href="{{url('purchase/delete_purchase_item',$result->id)}}" onclick="if(confirm('Are you sure want to delete?')) commentDelete(1); return false"><i class="fa fa-trash" title="Delete" style="color: red";></i></a>
                       </td>
                     </tr>

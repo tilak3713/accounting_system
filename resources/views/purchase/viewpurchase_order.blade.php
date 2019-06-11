@@ -13,6 +13,8 @@
     	<a href="{{url('purchase/add_purchase_order')}}" class="btn btn-success" style="float: right;">Add</button></a>
         <h6 class="m-0 font-weight-bold text-primary">List of Purchase Order</h6>
     </div>
+
+   
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -38,7 +40,7 @@
                        <td>{{date('d/m/Y',strtotime($result->purchase_date))}}</td>
                        <td>{{$result->id}}</td>
                        <td>{{date('d/m/Y',strtotime($result->po_closing_date))}}</td>
-                       <td>{{$result->po_supplier_name}}</td>
+                       <td>{{ $supplierlist[$result->po_supplier_name]}}</td>
                        
                        <td>{{$result->pi_supplier_amount}}</td>
                       
