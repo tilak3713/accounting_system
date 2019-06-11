@@ -357,6 +357,8 @@
         <script src="{{ asset('assets') }}/vendor/jquery/jquery.min.js"></script>
         <script src="{{ asset('assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+       
+        
         <!-- Core plugin JavaScript-->
         <script src="{{ asset('assets') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -376,16 +378,13 @@
   <!-- Page level custom scripts -->
   <script src="{{ asset('assets') }}/js/demo/datatables-demo.js"></script>
   <script src="{{ asset('assets') }}/js/jquery.validate.min.js"></script>
+  
     <script src="{{ asset('assets') }}/js/main.js"></script>
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
     <script>
-    
     function discount_item(req) {
     $.ajax({
         type: "GET",
-        url: {{url('list-of-discount-items')}},
+        url: "{{url('list-of-discount-items')}}",
         data: 'id=' + req,
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
@@ -410,6 +409,9 @@
         }
     });
 }
+    
     </script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     </body>
 </html>
