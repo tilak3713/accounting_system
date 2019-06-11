@@ -74,7 +74,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Supplier Name')}}</label>
                          <div class="col-md-6">
                      
-                            {{Form::select('po_supplier_name', array('1'=>'Choose Supplier Name')+$supplierlist, '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_name','autofocus'=>''])}}
+                            {{Form::select('po_supplier_name', array(''=>'Choose Supplier Name')+$supplierlist, '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_name','autofocus'=>''])}}
 
                             @if ($errors->has('po_supplier_name'))
                             <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Supplier Currency')}}</label>
                          <div class="col-md-6">
                      
-                            {{Form::select('po_supplier_currency',$currency_list, '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_currency','autofocus'=>''])}}
+                            {{Form::select('po_supplier_currency', array(''=>'Please select')+$currency_list, '',['class'=>'form-control','required'=>'','autocomplete'=>'po_supplier_currency','autofocus'=>''])}}
 
                             @if ($errors->has('po_supplier_currency'))
                             <span class="invalid-feedback" role="alert">

@@ -14,7 +14,7 @@ class PurchaseController extends Controller
     {
        $supplierlist = AccountModel::where('is_supplier_account', '1')->pluck('account_name', 'id')->toArray();
 
-       $currency_list = CountrySetupModel::all()->pluck('currency_code', 'id');
+       $currency_list = CountrySetupModel::all()->pluck('currency_code', 'id')->toArray();
                
         $data = PurchaseorderModel::orderBy('id','desc')->take(1)->get();
         $lastId=$data[0]->id+1;
@@ -87,7 +87,10 @@ class PurchaseController extends Controller
         ->select('purchase_order.po_closing_date','purchase_order.purchase_date','purchase_order.id','purchase_order.created_at','purchase_order.updated_at','purchase_order.po_supplier_name','purchase_order.po_supplier_currency','purchase_order.po_closing_date','purchase_order.po_ex_usd_rate','purchase_order.po_ex_aud_rate','purchase_order.po_narration','purchase_item.pi_booking_reference','purchase_item.pi_supplier_amount','purchase_item.pi_amount')  
         ->where('purchase_order.id','=',$id)
         ->get();
-        return view('purchase/editpurchase_order',compact('data')); 
+
+        $currency_list = CountrySetupModel::all()->pluck('currency_code', 'id')->toArray();
+
+        return view('purchase/editpurchase_order',compact('data','currency_list')); 
     }
 
         public function update_purchase_order(Request $request, $id)
