@@ -52,6 +52,7 @@ Route::post('purchase/insert_purchase_order','PurchaseController@insert_purchase
 Route::get('purchase/view_purchase_order','PurchaseController@view_purchase_order');
 Route::get('purchase/view_all_details_po/{id}','PurchaseController@view_all_details_po');
 Route::get('purchase/edit_purchase_order/{id}','PurchaseController@edit_purchase_order');
+Route::post('purchase/update_purchase_order/{id}','PurchaseController@update_purchase_order');
 Route::get('purchase/delete_purchase_order/{id}','PurchaseController@delete_purchase_order');
 Route::get('purchase/delete_purchase_item/{id}','PurchaseController@delete_purchase_item');
 //End Purchase Order

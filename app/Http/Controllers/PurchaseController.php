@@ -72,10 +72,44 @@ class PurchaseController extends Controller
         public function edit_purchase_order($id)
     {
         $data = PurchaseorderModel::join('purchase_item','purchase_order.id','=','purchase_item.po_id_fk')
-        ->select('purchase_order.po_closing_date','purchase_order.purchase_date','purchase_order.id','purchase_order.created_at','purchase_order.updated_at','purchase_order.po_supplier_name','purchase_order.po_supplier_currency','purchase_order.po_closing_date','purchase_order.po_ex_usd_rate','purchase_order.po_ex_aud_rate','purchase_order.po_narration','purchase_item.pi_booking_reference','purchase_item.pi_supplier_amount')  
+        ->select('purchase_order.po_closing_date','purchase_order.purchase_date','purchase_order.id','purchase_order.created_at','purchase_order.updated_at','purchase_order.po_supplier_name','purchase_order.po_supplier_currency','purchase_order.po_closing_date','purchase_order.po_ex_usd_rate','purchase_order.po_ex_aud_rate','purchase_order.po_narration','purchase_item.pi_booking_reference','purchase_item.pi_supplier_amount','purchase_item.pi_amount')  
         ->where('purchase_order.id','=',$id)
         ->get();
         return view('purchase/editpurchase_order',compact('data')); 
+    }
+
+        public function update_purchase_order(Request $request, $id)
+    {
+        //dd($request->items);
+        $data = PurchaseorderModel::find($id);
+        $data->purchase_date = $request->purchase_date;
+        $data->po_supplier_name = $request->po_supplier_name;
+        $data->po_supplier_currency = $request->po_supplier_currency;
+        $data->po_closing_date = $request->po_closing_date;
+        $data->po_ex_usd_rate = $request->po_ex_usd_rate;
+        $data->po_ex_aud_rate = $request->po_ex_aud_rate;
+        $data->po_narration = $request->po_narration;
+        
+        if($data->save())
+        {
+            $items = $request->input('items');
+
+            foreach ($items as $item)
+            {
+                $itemss = PurchaseitemModel::find($id);
+                  
+                $itemss->pi_booking_reference = $item['pi_booking_reference'];
+                $itemss->pi_supplier_amount = $item['pi_supplier_amount'];
+                
+                $itemss->pi_amount = $item['pi_amount'];
+                $itemss->save();
+            }
+        return redirect('purchase/view_purchase_order')->with('msg',"Purchase Order Update Successfully");
+        }else
+        {
+            return redirect('purchase/edit_purchase_order')->with('danger',"Error! Try Again");
+        }
+            
     }
 
     public function delete_purchase_order($id)
