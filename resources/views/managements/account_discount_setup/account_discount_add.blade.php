@@ -11,7 +11,7 @@ strong{
         font-family: auto;
       }
 </style>
-<h1 class="h3 mb-2 text-gray-800">Account Discount Add tilak</h1>
+<h1 class="h3 mb-2 text-gray-800">Account Discount Add</h1>
 
 
   
