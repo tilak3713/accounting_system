@@ -53,11 +53,11 @@
                       <td>
                       @if(isset($supplierlist[$result->po_supplier_name]))    
                          {{ $supplierlist[$result->po_supplier_name] }}
-                      @endif
-                      
+                      @endif                      
                       </td>
                       <td>{{ $currency_list[$result->po_supplier_currency]}}</td>
-                      <td>{{$result->pi_supplier_amount}}</td>
+                      <td>{{$result->pi_supplier_amount}}</td>                      <td>{{$result->pi_supplier_amount}}</td>                     
+
                       <td>{{$result->po_narration}}</td>
                       <td>0</td>
                       <td>{{$result->created_at->format('d/m/Y g:i A')}}</td>

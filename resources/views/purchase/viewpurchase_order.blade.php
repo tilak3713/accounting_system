@@ -40,7 +40,12 @@
                        <td>{{date('d/m/Y',strtotime($result->purchase_date))}}</td>
                        <td>{{$result->id}}</td>
                        <td>{{date('d/m/Y',strtotime($result->po_closing_date))}}</td>
-                       <td>{{ $supplierlist[$result->po_supplier_name]}}</td>
+                       <td>                           
+                            @if(isset($supplierlist[$result->po_supplier_name]))    
+                            {{ $supplierlist[$result->po_supplier_name] }}
+                            @endif 
+                        </td>
+                      
                        
                        <td>{{$result->pi_supplier_amount}}</td>
                       

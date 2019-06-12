@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/THOADMIN/resources/views/AccountList.blade.php</file>
             <file>file:/C:/xampp/htdocs/THOADMIN/resources/views/sales/customer_setup/customer_list.blade.php</file>
+            <file>file:/C:/xampp/htdocs/THOADMIN/resources/views/purchase/view-all-details-po.blade.php</file>
             <file>file:/C:/xampp/htdocs/THOADMIN/public/assets/js/main.js</file>
+            <file>file:/C:/xampp/htdocs/THOADMIN/resources/views/layouts/app.blade.php</file>
         </group>
     </open-files>
 </project-private>
