@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Add new <a href="{{url('account-group/list')}}" class="btn btn-primary btn-sm"> <i class="fas fa-list"></i> View All</a></h1>
+<h1 class="h3 mb-2 text-gray-800">Add New Account Group
+<a href="{{url('account-group/list')}}" class="btn btn-primary btn-sm"> <i class="fas fa-list"></i> View All</a></h1>
 <div class="row">
     <div class="col-lg-10">
         <!-- Default Card Example -->
