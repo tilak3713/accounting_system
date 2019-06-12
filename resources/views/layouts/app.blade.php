@@ -399,7 +399,7 @@
                         "<td>" + element.discount_percent + "</td>" +
                         "<td>" + element.created_at + "</td>" +
                         "<td>" + element.updated_at + "</td>" +
-                        "<td> <a href=javascript:editaccountdiscount('"+ element.item_description + "','" + element.discount_amount + "','" + element.discount_percent + "','" + element.account_discount_id + "','" + element.id + "'"+") class='btn btn-primary' title='Edit'><i class='fas fa-edit'></i></a><a href={{url('discount-item-delete')}}/"+element.id+" class='btn btn-danger' title='Delete'><i class='fas fa-trash'> </i> </a> </td>" +
+                        "<td> <a href=javascript:editaccountdiscount('"+ element.item_description + "','" + element.discount_amount + "','" + element.discount_percent + "','" + element.account_discount_id + "','" + element.id + "'"+") class='btn btn-primary' title='Edit'><i class='fas fa-edit'></i></a><a href=javascript:delete_discount_item('"+element.id +"','"+element.account_discount_id+"'"+") class='btn btn-danger' title='Delete'><i class='fas fa-trash'></i></a></td>" +
                         "</tr>";
 
 
