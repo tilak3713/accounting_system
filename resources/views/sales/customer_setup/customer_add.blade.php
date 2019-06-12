@@ -10,7 +10,7 @@
     <div class="col-md-12 ">
         <!-- Default Card Example -->
         <div class="card mb-4">  
-            <div class="card-header">Customer Add
+            <div class="card-header">Add New Customer
             <a href="{{ url('sales/customers') }}" class="btn btn-sm btn-primary" style="float:right;"><i class="fa fa-arrow-left"></i>Back</a>
             </div>
 
