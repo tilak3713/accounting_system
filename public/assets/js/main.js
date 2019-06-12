@@ -164,15 +164,19 @@ $(document).ready(function () {
 
 
 
-function editaccountdiscount(edit_id_item_description, edit_id_discount_amount, edit_id_discount_percent, discount_item_id) {
+function editaccountdiscount(edit_id_item_description, edit_id_discount_amount, edit_id_discount_percent,account_discount_id, discount_item_id) {
+
 
     $('#edit_id_item_description').val(edit_id_item_description);
     $('#edit_id_discount_amount').val(edit_id_discount_amount);
     $('#edit_id_discount_percent').val(edit_id_discount_percent);
-
+    $('#discount_account_id').val(account_discount_id);
     $('#discount_item_id').val(discount_item_id);
     $('#itemeditModalId').modal('show');
 
 }
+
+
+
 
 
