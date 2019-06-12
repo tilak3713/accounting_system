@@ -60,8 +60,17 @@
                     <tr>
                         <td>{{ $data->id }}</td>
                         <td>{{ $data->account_name }}</td>
-                        <td>{{ $groupnamelist[$data->account_group] }}</td>
-                        <td>{{ $ParentsAccountName[$data->parent_account] }}</td>
+                        <td>                           
+                            @if(isset($groupnamelist[$data->account_group]))    
+                            {{ $groupnamelist[$data->account_group] }}
+                            @endif 
+                        </td>
+                        <td>                           
+                            @if(isset($ParentsAccountName[$data->parent_account]))    
+                            {{ $ParentsAccountName[$data->parent_account] }}
+                            @endif 
+                        </td>
+                       
                         <td>{{ $data->advance_account }}</td>
                         <td>{!! $func[$data->is_cash_or_bank] !!}</td>
                         <td>{!! $func[$data->is_customer_related] !!}</td>
@@ -69,7 +78,6 @@
                         <td>{!! $func[$data->is_supplier_account] !!}</td>
                         <td>{!! $func[$data->is_expense_account] !!}</td>
                         <td>
-
                             @if($data->status==1)
                             <?php
                             $statusClass = 'btn btn-success btn-sm';
@@ -83,7 +91,6 @@
                             $statusname = 'In-active';
                             ?>
                             @endif
-
                             <a class="{{$statusClass}}" href="{{$statusURl.'/'.$data->id}}" title="{{$statusname}}">{{$statusname}}</a>
                         </td>
                         <td>{{ $data->account_additional_info }}</td>

@@ -34,13 +34,20 @@
                     @foreach($expenses as $data)
                     <tr>
                         <td>{{$data->id}}</td>
-                        <td>{{$cashOrBankAccounts[$data->cash_or_bank_ac]}}</td>
-                        <td>{{$data->narration}}</td>
-                        <td>
-                            
-                            {{$expenseAccount[$data->account]}}
-                        
+                        <td>                           
+                            @if(isset($cashOrBankAccounts[$data->cash_or_bank_ac]))    
+                            {{ $cashOrBankAccounts[$data->cash_or_bank_ac] }}
+                            @endif 
                         </td>
+
+                        <td>{{$data->narration}}</td>
+
+                        <td>                           
+                            @if(isset($expenseAccount[$data->account]))    
+                            {{ $expenseAccount[$data->account] }}
+                            @endif 
+                        </td>
+
                         <td>{{$data->tax_type}}</td>
                         <td>{{$data->amount_without_tax}}</td>
                         <td>{{$data->tax_amount}}</td>
