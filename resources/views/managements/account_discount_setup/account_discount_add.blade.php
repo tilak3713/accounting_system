@@ -272,7 +272,24 @@ strong{
   </div>
 
 
+<script type="text/javascript">
 
+  function delete_discount_item(discount_item_id,account_discount_id){
+
+        $.ajax({
+            type:"GET",
+            url:"{{url('discount-item-delete')}}/"+discount_item_id,
+     
+            success: function (){
+                discount_item(account_discount_id);
+            }
+
+
+        })
+
+}
+
+</script>
 
 
 @endsection
