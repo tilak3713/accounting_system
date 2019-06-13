@@ -32,7 +32,7 @@
                          <td>{{$data->id}}</td>
                          <td>{{$data->tax_type_code}}</td>
                          <td>{{$data->tax_type_name}}</td>
-                         <td>{{$data->tax_rate}}</td>
+                         <td>{{$data->tax_rate}}%</td>
                          
                          <td>{{$data->created_at}}</td>
                          <td>{{$data->updated_at}}</td>
