@@ -48,7 +48,7 @@
                             @endif 
                         </td>
 
-                        <td>{{$data->tax_type}}</td>
+                        <td>{{$data->tax_type}}%</td>
                         <td>{{$data->amount_without_tax}}</td>
                         <td>{{$data->tax_amount}}</td>
                         <td>{{$data->amount_with_tax}}</td>
