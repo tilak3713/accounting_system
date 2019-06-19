@@ -186,13 +186,9 @@ strong{
             </div>
             <input type="hidden" name="discount_account_id" value="{{ $get_data_byid->id}} " >
               <input type="submit" name="submit" class="btn btn-primary pull-right" style="float: right;">
+              
       </div>
-        
-
-
-
 {{Form::close()}}
-
       </div>
     </div>
   </div>

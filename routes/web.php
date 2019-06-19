@@ -180,7 +180,7 @@ Route::post('discount-items-store','managements\AccountDiscountSetupController@d
 Route::get('list-of-discount-items','managements\AccountDiscountSetupController@list_of_discount_items')->name('list-of-discount-items');
 Route::get('account-discount-delete/{id}','managements\AccountDiscountSetupController@account_delete');
 Route::get('account-discount-edit/{id}','managements\AccountDiscountSetupController@account_edit');
-
+Route::resource('budget','managements\Budget_Controller');
 Route::post('acounts-discount-update/{id}','managements\AccountDiscountSetupController@discount_update');
 Route::get('discount-item-delete/{id}','managements\AccountDiscountSetupController@discount_item_delete');
 Route::post('discount-items-edit','managements\AccountDiscountSetupController@discount_items_update');
