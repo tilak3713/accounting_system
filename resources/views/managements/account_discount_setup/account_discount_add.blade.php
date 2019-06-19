@@ -19,7 +19,6 @@ strong{
             <div class="card-header">Form</div>
 
             <div class="card-body">
-
            {{ Form::open(array('url'=>'acounts-discount-store', 'id'=>'adddiscountaccountId', 'name'=>'adddiscountaccountId') )}}
             <div class="form-group row">
              {!! htmlspecialchars_decode(Form::label('Period','Discount Period :<span class="star">*</span> ',array('class' => 'col-md-4 col-form-label text-md-right')))!!}
