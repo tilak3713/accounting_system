@@ -185,8 +185,4 @@ Route::post('acounts-discount-update/{id}','managements\AccountDiscountSetupCont
 Route::get('discount-item-delete/{id}','managements\AccountDiscountSetupController@discount_item_delete');
 Route::post('discount-items-edit','managements\AccountDiscountSetupController@discount_items_update');
 
-// hello test
-// kjsdfkjsgdkfjsdgkj
-// 
-// 
-// check out
+
